@@ -1,0 +1,30 @@
+class Solution {
+    public boolean checkStraightLine(int[][] coordinates) {
+        int points = coordinates.length;
+        int x0 = coordinates[0][0];
+        int y0 = coordinates[0][1];
+        int x1 = coordinates[1][0];
+        int y1 = coordinates[1][1];
+        int xdiff=x1-x0;
+        int ydiff=y1-y0;
+       
+        for(int i=2;i<points;i++)
+        {
+             int currxdiff;
+             int currydiff;
+            int x = coordinates[i][0];
+            int y = coordinates[i][1];
+            int x3=coordinates[i-1][0];
+            int y3=coordinates[i-1][1];
+            currxdiff=x-x3;
+            currydiff=y-y3;
+
+            if(ydiff*currxdiff!=xdiff*currydiff)
+            return false;
+
+        }
+        return true;
+
+        
+    }
+}
